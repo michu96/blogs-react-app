@@ -15,6 +15,26 @@ body {
   background: #f2f2f2;
   padding-top: 2rem;
 }
+button {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1rem;
+  display: inline-block;
+  padding: 0.7em 1.5em;
+  background: #111;
+  color: #fff;
+  border: none;
+  border-radius: 0.4em;
+  letter-spacing: 0.1em;
+}
+button:hover,
+button:focus {
+  cursor: pointer;
+  box-shadow: 0 0 0.5em rgba(0, 0, 0, 0.2);
+  background-color: #333;
+}
+button:focus {
+  outline: 1px solid black;
+}
 .blogs-container {
   max-width: 1200px;
   margin: 0 auto;
@@ -62,21 +82,12 @@ body {
   content: 'Author: ';
 }
 .blog-card__btn {
-  display: inline-block;
-  font-size: 1rem;
-  font-family: 'Roboto', sans-serif;
-  color: #fff;
-  cursor: pointer;
-  padding: 0.5em 1.5em;
-  background: rgb(32, 32, 32);
-  border: none;
-  border-radius: 5px;
-  letter-spacing: 1px;
+  font-size: 0.9rem;
+  padding: 0.4em 1em;
 }
 .blog-card__btn:hover,
 .blog-card__btn:focus {
   background: rgb(212, 21, 21);
-  box-shadow: 0 0 0.2em rgba(0, 0, 0, 0.2);
 }
 .blog-card__btn--edit {
   background: rgb(0, 116, 161);
@@ -100,4 +111,26 @@ body {
   .blog-card__title {
     font-size: 2rem;
   }
+}
+
+.blogs-nav {
+  padding-right: 1rem;
+  position: sticky;
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: flex-end;
+  top: 1rem;
+}
+.blogs-nav__btn {
+  font-size: 1.2em;
+  font-weight: 700;
+}
+.blogs-nav__btn--new {
+  background: rgb(15, 161, 15);
+  color: #f2f2f2;
+}
+.blogs-nav__btn--new:hover,
+.blogs-nav__btn--new:focus {
+  background: rgb(50, 170, 50);
+  color: #fff;
 }

@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
-import Blog from './Blog'
 import axios from 'axios'
+import Blog from './Blog'
+import BlogsNav from './BlogsNav'
 
 function Blogs() {
   const [blogs, setBlogs] = useState([])
@@ -25,6 +26,7 @@ function Blogs() {
   }, [])
   return (
     <div className="blogs-container">
+      <BlogsNav />
       {blogs.map((blog) => {
         return <Blog key={blog._id} blog={blog} deleteBlog={deleteBlog} />
       })}
