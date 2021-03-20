@@ -35,6 +35,78 @@ button:focus {
 button:focus {
   outline: 1px solid black;
 }
+.modal {
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  min-width: 100vw;
+  min-height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.modal__box {
+  position: relative;
+  padding: 0;
+  background: #f2f2f2;
+  box-shadow: 0 0 1em rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  min-width: 30%;
+  max-width: 90%;
+  max-height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+.modal__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0.8rem 0.5rem 1rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+}
+.modal__title {
+  color: #777;
+  font-size: 2rem;
+  word-wrap: break-word;
+  align-self: center;
+}
+.modal__btn-close {
+  font-size: 2.5rem;
+  align-self: flex-start;
+  font-weight: 700;
+  padding: 0;
+  color: #999;
+  background: unset;
+  margin-left: 1em;
+}
+.modal__btn-close:hover,
+.modal__btn-close:focus {
+  color: #666;
+  box-shadow: none;
+  background: unset;
+}
+.modal__content {
+  padding: 1.5rem 1.5rem 3rem;
+}
+/* modal CSSTransition classes */
+.modal-appear {
+  opacity: 0;
+}
+.modal-appear-active {
+  opacity: 1;
+  transition: opacity ease-in-out 200ms;
+}
+.modal-appear .modal__box {
+  transform: scale(0.9);
+}
+.modal-appear-active .modal__box {
+  transform: scale(1);
+  transition: transform ease-in-out 200ms;
+}
 .blogs-container {
   max-width: 1200px;
   margin: 0 auto;

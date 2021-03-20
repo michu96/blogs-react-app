@@ -1,7 +1,12 @@
-function BlogsNav() {
+function BlogsNav({ newBlogOnClick }) {
   return (
     <div className="blogs-nav">
-      <button className="blogs-nav__btn blogs-nav__btn--new">New blog</button>
+      <button
+        className="blogs-nav__btn blogs-nav__btn--new"
+        onClick={newBlogOnClick}
+      >
+        New blog
+      </button>
     </div>
   )
 }
