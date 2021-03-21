@@ -3,10 +3,13 @@ import axios from 'axios'
 import Blog from './Blog'
 import BlogsNav from './BlogsNav'
 import Modal from './Modal'
+import BlogForm from './BlogForm'
 
 function Blogs() {
+  const [activeBlog, setActiveBlog] = useState({})
   const [blogs, setBlogs] = useState([])
   const [showNewBlogModal, setShowNewBlogModal] = useState(false)
+  const [showEditBlogModal, setShowEditBlogModal] = useState(false)
   const fetchBlogs = async () => {
     const res = await axios.get('https://blogs-api-test.herokuapp.com/api')
     return res.data
@@ -22,6 +25,30 @@ function Blogs() {
   const toggleNewBlogModal = () => {
     setShowNewBlogModal(!showNewBlogModal)
   }
+  const toggleEditBlogModal = (blog) => {
+    setActiveBlog(blog)
+    setShowEditBlogModal(!showEditBlogModal)
+  }
+  const createNewBlog = async (e, blog) => {
+    e.preventDefault()
+    const res = await axios.post(
+      'https://blogs-api-test.herokuapp.com/api',
+      blog
+    )
+    setShowNewBlogModal(false)
+    const blogs = await fetchBlogs()
+    setBlogs(blogs)
+  }
+  const updateBlog = async (e, blog) => {
+    e.preventDefault()
+    const res = await axios.put(
+      `https://blogs-api-test.herokuapp.com/api/${blog._id}`,
+      blog
+    )
+    setShowEditBlogModal(false)
+    const blogs = await fetchBlogs()
+    setBlogs(blogs)
+  }
 
   useEffect(() => {
     async function getBlogs() {
@@ -36,13 +63,24 @@ function Blogs() {
 
       {showNewBlogModal ? (
         <Modal header={'Create new blog'} onClose={toggleNewBlogModal}>
-          Modal test
+          <BlogForm blog={{}} onSubmitHandler={createNewBlog} />
+        </Modal>
+      ) : showEditBlogModal ? (
+        <Modal header={'Edit blog'} onClose={toggleEditBlogModal}>
+          <BlogForm blog={activeBlog} onSubmitHandler={updateBlog} />
         </Modal>
       ) : (
         <></>
       )}
       {blogs.map((blog) => {
-        return <Blog key={blog._id} blog={blog} deleteBlog={deleteBlog} />
+        return (
+          <Blog
+            key={blog._id}
+            blog={blog}
+            deleteBlog={deleteBlog}
+            editBlog={toggleEditBlogModal}
+          />
+        )
       })}
     </div>
   )

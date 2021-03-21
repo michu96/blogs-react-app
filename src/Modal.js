@@ -5,6 +5,8 @@ import { CSSTransition } from 'react-transition-group'
 function Modal({ header, onClose, children }) {
   const modalRef = useRef(null)
   useEffect(() => {
+    window.document.body.style.overflowY = 'hidden'
+
     const keyEvent = (e) => {
       if (e.key === 'Escape') {
         onClose()
@@ -12,6 +14,7 @@ function Modal({ header, onClose, children }) {
     }
     window.addEventListener('keyup', keyEvent)
     return () => {
+      window.document.body.style.overflowY = 'auto'
       window.removeEventListener('keyup', keyEvent)
     }
   }, [onClose])
