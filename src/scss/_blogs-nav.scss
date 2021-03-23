@@ -1,0 +1,23 @@
+.blogs-nav {
+  padding-right: 1rem;
+  position: sticky;
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: flex-end;
+  top: 1rem;
+
+  &__btn {
+    font-size: 1.2em;
+    font-weight: 700;
+
+    &--new {
+      background: rgb(15, 161, 15);
+      color: #f2f2f2;
+      &:hover,
+      &:focus {
+        background: rgb(50, 170, 50);
+        color: #fff;
+      }
+    }
+  }
+}
