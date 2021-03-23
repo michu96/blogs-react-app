@@ -160,6 +160,20 @@ button:focus {
   letter-spacing: 0.07em;
   margin-bottom: 1.5em;
 }
+.blog-card__date::before {
+  content: 'Created at ';
+  font-weight: 700;
+}
+.blog-card__updated {
+  color: #aaa;
+  font-size: 0.8rem;
+  letter-spacing: 0.07em;
+  margin-bottom: 1.5em;
+}
+.blog-card__updated::before {
+  content: 'Updated at ';
+  font-weight: 700;
+}
 .blog-card__short {
   font-size: 1.2rem;
   color: #444;
@@ -181,6 +195,7 @@ button:focus {
 }
 .blog-card__author::before {
   content: 'Author: ';
+  font-weight: 700;
 }
 .blog-card__btn {
   font-size: 0.9rem;
@@ -247,5 +262,13 @@ button:focus {
   color: #666;
   font-size: 0.9rem;
 }
+.blog-form__error {
+  color: rgb(255, 0, 0);
+  font-size: 0.9rem;
+  font-weight: 700;
+}
 .blog-form__btn {
+}
+.blog-form__input--error {
+  border: 1px solid red;
 }
