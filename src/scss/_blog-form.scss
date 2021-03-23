@@ -1,0 +1,19 @@
+.blog-form {
+  &__form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0.7rem;
+  }
+  &__label {
+    color: #666;
+    font-size: 0.9rem;
+  }
+  &__error {
+    color: rgb(255, 0, 0);
+    font-size: 0.9rem;
+    font-weight: 700;
+  }
+  &__input-error {
+    border: 1px solid red;
+  }
+}

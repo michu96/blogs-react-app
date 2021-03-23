@@ -1,0 +1,78 @@
+.modal {
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  min-width: 100vw;
+  min-height: 100vh;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__box {
+    position: relative;
+    padding: 0;
+    background: #f2f2f2;
+    box-shadow: 0 0 1em rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    width: 100%;
+    max-width: min(1000px, 90%);
+    /* max-height: 80vh; */
+    max-height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    border: 3px solid #777;
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0.8rem 0.5rem 1rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+  }
+
+  &__title {
+    color: #777;
+    font-size: 2rem;
+    word-wrap: break-word;
+    align-self: center;
+  }
+
+  &__content {
+    padding: 1.5rem 1.5rem 3rem;
+  }
+
+  &__btn-close {
+    font-size: 2.5rem;
+    align-self: flex-start;
+    font-weight: 700;
+    padding: 0;
+    color: #999;
+    background: unset;
+    margin-left: 1em;
+    &:hover,
+    &:focus {
+      color: #666;
+      box-shadow: none;
+      background: unset;
+    }
+  }
+  //CSSTransition classes
+  &-appear {
+    opacity: 0;
+  }
+  &-appear-active {
+    opacity: 1;
+    transition: opacity ease-in-out 200ms;
+  }
+  &-appear &__box {
+    transform: scale(0.9);
+  }
+  &-appear-active &__box {
+    transform: scale(1);
+    transition: transform ease-in-out 200ms;
+  }
+}
