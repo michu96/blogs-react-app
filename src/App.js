@@ -1,4 +1,4 @@
-import Blogs from './Blogs'
+import Blogs from './components/Blogs'
 
 function App() {
   return <Blogs />
